@@ -64,6 +64,9 @@
   .arr{width:1em;height:1em;flex:none}
   .sprite{position:absolute;width:0;height:0;overflow:hidden}
 
+  /* short labels and captions: even lines, no stray last word */
+  figcaption,.stat3 .l,.hero-num .lab,.stats .d,.ix .w{text-wrap:balance}
+
   /* in-prose links keep a quiet underline so they read as links */
   p a,.how a{text-decoration:underline;text-decoration-color:rgba(255,255,255,.4);text-underline-offset:5px;
     transition:text-decoration-color var(--dur-fast) var(--ease-out)}
@@ -92,7 +95,9 @@
   .wordmark:hover{text-decoration:none}
   nav .links{display:flex;gap:28px;flex-wrap:wrap;font-size:15px}
   .hero-body{margin-top:auto;padding-top:72px;padding-bottom:clamp(40px,6vw,72px);display:flex;flex-direction:column;gap:clamp(28px,4vw,44px)}
-  .hero h1{font-size:clamp(44px,6.6vw,108px);line-height:1.04;letter-spacing:-.03em}
+  .hero h1{font-size:clamp(30px,6.6vw,108px);line-height:1.04;letter-spacing:-.03em}
+  .hero h1 .ln{display:block}
+  .hero .focus .i{display:inline-block;margin-right:.45em}
   .hero .focus{font-size:clamp(18px,1.8vw,26px);font-weight:300;color:var(--mist-200);line-height:1.4}
   .hero-foot{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:24px}
   .loc{font-size:16px;color:var(--mist-200)}
@@ -107,9 +112,11 @@
   .stat3{border-top:1.5px solid var(--rule-on-dark);padding-top:18px;display:flex;flex-direction:column;gap:14px}
   .stat3 .l{font-size:clamp(14px,1.3vw,18px);font-weight:500;line-height:1.3}
   .stat3 .n{font-size:clamp(48px,8vw,120px);font-weight:600;line-height:.85;letter-spacing:-.04em;font-variant-numeric:tabular-nums;white-space:nowrap}
-  .prose{max-width:68ch}
-  .prose p+p{margin-top:18px;color:var(--mist-200)}
-  .prose .lead{font-size:clamp(20px,2vw,28px);font-weight:300;line-height:1.5;letter-spacing:-.01em;color:#fff;max-width:36em}
+  .prose{max-width:none}
+  .prose p:not(.lead){max-width:54ch}
+  .nb{white-space:nowrap}
+  .prose p+p{margin-top:16px;color:var(--mist-200)}
+  .prose .lead{font-size:clamp(20px,2vw,28px);font-weight:300;line-height:1.5;letter-spacing:-.01em;color:#fff;max-width:30em}
   .prose .lead+p{margin-top:28px}
 
   /* index of cases */
@@ -141,7 +148,8 @@
   .topline{display:flex;justify-content:space-between;align-items:flex-start;gap:24px;
     font-size:15px;font-weight:500;letter-spacing:.04em;text-transform:uppercase;line-height:1.5}
   .topline .arr{width:36px;height:36px}
-  .case h3{font-size:clamp(30px,3.4vw,46px);line-height:1.12;margin:clamp(36px,5vw,56px) 0 clamp(28px,3.5vw,44px)}
+  .case h3 .ln{display:block}
+  .case h3{font-size:clamp(28px,3vw,40px);line-height:1.12;margin:clamp(36px,5vw,56px) 0 clamp(28px,3.5vw,44px)}
   .row{display:grid;grid-template-columns:150px minmax(0,1fr);gap:24px;padding:22px 0;border-top:1.5px solid var(--rule-on-dark-soft)}
   .row .k{padding-top:5px}
   .row .v{color:var(--mist-200)}
@@ -203,7 +211,7 @@
 <!-- Hero -->
 <header class="hero" id="top">
   <nav class="wrap">
-    <a class="wordmark" href="#top">Fiona Yen-Ching Wu</a>
+    <a class="wordmark" href="#top">Fiona <span class="nb">Yen-Ching</span> Wu</a>
     <div class="links">
       <a href="#work">Work</a>
       <a href="#how">How I Work</a>
@@ -212,8 +220,8 @@
     </div>
   </nav>
   <div class="wrap hero-body">
-    <h1>Marketing Manager —<br>Trade Shows &amp; Events.</h1>
-    <p class="focus">Flagship events &nbsp;·&nbsp; Trade shows &nbsp;·&nbsp; Account-based marketing &nbsp;·&nbsp; EMEA &amp; APAC</p>
+    <h1><span class="ln">Marketing Manager&nbsp;—</span><span class="ln">Trade Shows &amp; Events.</span></h1>
+    <p class="focus"><span class="i">Flagship events&nbsp;·</span> <span class="i">Trade shows&nbsp;·</span> <span class="i"><span class="nb">Account-based</span> marketing&nbsp;·</span> <span class="i">EMEA &amp; APAC</span></p>
     <div class="hero-foot">
       <div class="btn-row">
         <a class="btn btn-primary" href="mailto:fionaycwu@gmail.com">fionaycwu@gmail.com <svg class="arr" aria-hidden="true"><use href="#arr"/></svg></a>
@@ -238,14 +246,14 @@
     </div>
     <div class="prose">
       <p class="lead">I own B2B events from the first concept to the pipeline they produce: trade shows,
-      flagship events and account-based programmes across EMEA and Asia-Pacific.</p>
-      <p>At Delta Electronics EMEA I own the trade show and account-based event programme for the data centre
-      and power portfolios, and plan and allocate the EMEA marketing and events budget. At OCP EMEA Barcelona
-      2026 the campaign I built with sales took qualified leads from around ten to more than 60. Before Europe,
-      14 years with TAITRA, the organiser of COMPUTEX: for 2–3 international trade shows a year I was the sole
+      flagship events and <span class="nb">account-based</span> programmes across EMEA and <span class="nb">Asia-Pacific</span>.</p>
+      <p>At Delta Electronics EMEA I own the trade show and <span class="nb">account-based</span> event programme for the data centre
+      and power portfolios, and plan and allocate the EMEA marketing and events budget.</p>
+      <p>At OCP EMEA Barcelona 2026 the campaign I built with sales took qualified leads from around ten to more than 60.</p>
+      <p>Before Europe, 14 years with TAITRA, the organiser of COMPUTEX: for 2–3 international trade shows a year I was the sole
       owner of the event programme, from the opening ceremony to the VIP and buyers' nights, plus two overseas
       postings leading local teams in Jakarta and Chengdu.</p>
-      <p>I came to the Netherlands in 2022 for a full-time MBA at TIAS / Tilburg University and stayed on to
+      <p>I came to the Netherlands in 2022 for a <span class="nb">full-time</span> MBA at TIAS / Tilburg University and stayed on to
       work here. Native Mandarin speaker.</p>
     </div>
   </div>
@@ -257,16 +265,16 @@
     <h2 class="sec-head">Selected Work</h2>
     <div class="index">
       <a class="ix" href="#ocp"><span class="no">01</span>
-        <span><span class="t">Account-Based Marketing — OCP EMEA</span><span class="w">Dublin 2025 · Barcelona 2026 · Delta Electronics EMEA</span></span>
+        <span><span class="t"><span class="nb">Account-Based</span> Marketing&nbsp;— OCP EMEA</span><span class="w">Dublin 2025 · Barcelona 2026 · Delta Electronics EMEA</span></span>
         <span class="s">60+<small>leads</small></span><svg class="arr" aria-hidden="true"><use href="#arr"/></svg></a>
       <a class="ix" href="#electronica"><span class="no">02</span>
-        <span><span class="t">Trade Show Programme — electronica 2024</span><span class="w">Munich · Delta Electronics EMEA · 2024</span></span>
+        <span><span class="t">Trade Show Programme&nbsp;— electronica 2024</span><span class="w">Munich · Delta Electronics EMEA · 2024</span></span>
         <span class="s">100+<small>leads</small></span><svg class="arr" aria-hidden="true"><use href="#arr"/></svg></a>
       <a class="ix" href="#vip-night"><span class="no">03</span>
-        <span><span class="t">Invitation-Only VIP Preview Night — Taiwan International Boat Show 2016</span><span class="w">Taiwan · TAITRA Exhibition Department · 2016</span></span>
+        <span><span class="t"><span class="nb">Invitation-Only</span> VIP Preview Night&nbsp;— Taiwan International Boat Show 2016</span><span class="w">Taiwan · TAITRA Exhibition Department · 2016</span></span>
         <span class="s">~13%<small>of budget</small></span><svg class="arr" aria-hidden="true"><use href="#arr"/></svg></a>
       <a class="ix" href="#jakarta"><span class="no">04</span>
-        <span><span class="t">Running an Overseas Office — Taiwan Trade Center Jakarta</span><span class="w">Jakarta · TAITRA · 2018–2020</span></span>
+        <span><span class="t">Running an Overseas Office&nbsp;— Taiwan Trade Center Jakarta</span><span class="w">Jakarta · TAITRA · 2018–2020</span></span>
         <span class="s">#2<small>of 62 offices</small></span><svg class="arr" aria-hidden="true"><use href="#arr"/></svg></a>
     </div>
   </div>
@@ -280,25 +288,25 @@
   </div></div>
   <div class="case-r"><div class="in">
     <div class="topline"><span>Dublin 2025 · Barcelona 2026 · Delta Electronics EMEA</span><svg class="arr" aria-hidden="true"><use href="#arr"/></svg></div>
-    <h3>Account-Based Marketing — OCP EMEA</h3>
+    <h3><span class="ln"><span class="nb">Account-Based</span> Marketing&nbsp;—</span> <span class="ln">OCP EMEA</span></h3>
 
     <div class="row"><div class="k label">Context</div>
       <p class="v">OCP EMEA is a cloud and data centre industry forum rather than a large exhibition —
       the value is in who you meet, not how many people walk past. I attended Lisbon 2024 for the first
       time as an observer, and have owned Delta's presence since Dublin 2025.</p></div>
     <div class="row"><div class="k label">My role</div>
-      <p class="v">Own the event end to end: registration, format, pre-event campaign, invitations
-      designed and sent, on-site qualification and handover to sales.</p></div>
+      <p class="v">Own the event end to end: registration, format, <span class="nb">pre-event</span> campaign, invitations
+      designed and sent, <span class="nb">on-site</span> qualification and handover to sales.</p></div>
     <div class="row"><div class="k label">What I did</div>
       <p class="v">2025 was a straight execution of the existing format and produced around ten leads.
       For 2026 I rebuilt it as an integrated campaign. I sourced the content for a product landing page
       and set out how it should be presented, agreed the structure with the sales lead, briefed corporate
       marketing who built the page, then reviewed and refined it. I produced the campaign video myself in
       Canva from the same material. I&nbsp;personalised invitations using the sales team's priority account
-      lists rather than a marketing-built one, qualified leads on site rather than after the event, and
+      lists rather than a <span class="nb">marketing-built</span> one, qualified leads on site rather than after the event, and
       consolidated them into CRM for sales to follow up.</p></div>
     <div class="row"><div class="k label">My call</div>
-      <p class="v">Invite from the sales team's priority-account list, one name at a time, instead of a
+      <p class="v">Invite from the sales team's <span class="nb">priority-account</span> list, one name at a time, instead of a
       general invitation. Ten leads the year before told me the problem was the audience, not the reach.</p></div>
     <div class="row outcome"><div class="k label">Outcome</div>
       <div class="v">
@@ -307,10 +315,10 @@
           <span class="n">~6×</span><span class="d">increase on the same event</span>
         </div>
         <p>60+ leads from a defined target list in 2026, up from
-        around ten the previous year — roughly a six-fold increase on the same event.</p></div></div>
+        around ten the previous year — roughly a <span class="nb">six-fold</span> increase on the same event.</p></div></div>
     <div class="row"><div class="k label">See it</div>
       <p class="v">Both published on Delta Electronics EMEA's LinkedIn:<br>
-      <a href="https://www.linkedin.com/posts/delta-electronics-emea_join-delta-electronics-at-ocp-emea-2026-activity-7453458029749878784-J1W-">2026 — pre-event campaign video (Barcelona)</a><br>
+      <a href="https://www.linkedin.com/posts/delta-electronics-emea_join-delta-electronics-at-ocp-emea-2026-activity-7453458029749878784-J1W-">2026 — <span class="nb">pre-event</span> campaign video (Barcelona)</a><br>
       <a href="https://www.linkedin.com/posts/aiinfrastructure-datacenterinnovation-ocp2025-ugcPost-7320008535843438592-pEUm/">2025 — campaign post (Dublin)</a></p></div>
     <div class="shots"><figure><img src="ocp-barcelona-2026.jpg" alt="Delta at OCP EMEA Barcelona 2026"><figcaption>OCP EMEA, Barcelona 2026. Photo: Delta Electronics EMEA (public LinkedIn post).</figcaption></figure></div>
     <div class="row"><div class="k label">What I’d do differently</div>
@@ -329,19 +337,19 @@
   </div></div>
   <div class="case-r"><div class="in">
     <div class="topline"><span>Munich · Delta Electronics EMEA · 2024</span><svg class="arr" aria-hidden="true"><use href="#arr"/></svg></div>
-    <h3>Trade Show Programme — electronica 2024</h3>
+    <h3><span class="ln">Trade Show Programme&nbsp;—</span> <span class="ln">electronica 2024</span></h3>
 
     <div class="row"><div class="k label">Context</div>
       <p class="v">electronica is the world's leading trade fair for electronic components. Five Delta
       product teams each wanted their own presence, messaging and exhibit space.</p></div>
     <div class="row"><div class="k label">My role</div>
-      <p class="v">Programme lead. Owned exhibit selection, messaging, on-site execution and the
-      post-show follow-up process.</p></div>
+      <p class="v">Programme lead. Owned exhibit selection, messaging, <span class="nb">on-site</span> execution and the
+      <span class="nb">post-show</span> <span class="nb">follow-up</span> process.</p></div>
     <div class="row"><div class="k label">What I did</div>
-      <p class="v">Ran the programme from exhibit selection through messaging to on-site execution,
+      <p class="v">Ran the programme from exhibit selection through messaging to <span class="nb">on-site</span> execution,
       working with five product teams and their agencies.</p></div>
     <div class="row"><div class="k label">My call</div>
-      <p class="v">One shared plan and one lead-qualification standard for five teams, instead of five
+      <p class="v">One shared plan and one <span class="nb">lead-qualification</span> standard for five teams, instead of five
       parallel ones. Every lead went into CRM at the point of conversation, not after the show.</p></div>
     <div class="row outcome"><div class="k label">Outcome</div>
       <div class="v">
@@ -355,7 +363,7 @@
     <div class="row"><div class="k label">What I’d do differently</div>
       <p class="v">The event brought together five product teams, each with its own marketing resources.
       If I'd had full visibility into what each team was investing upfront, I could have aligned
-      post-event follow-up across all five instead of coordinating it team by team.</p></div>
+      <span class="nb">post-event</span> <span class="nb">follow-up</span> across all five instead of coordinating it team by team.</p></div>
   </div></div>
 </section>
 
@@ -367,11 +375,11 @@
   </div></div>
   <div class="case-r"><div class="in">
     <div class="topline"><span>Taiwan · TAITRA Exhibition Department · 2016</span><svg class="arr" aria-hidden="true"><use href="#arr"/></svg></div>
-    <h3>Invitation-Only VIP Preview Night — Taiwan International Boat Show 2016</h3>
+    <h3><span class="ln"><span class="nb">Invitation-Only</span> VIP Preview Night&nbsp;—</span> <span class="ln">Taiwan International Boat Show 2016</span></h3>
 
     <div class="row"><div class="k label">Context</div>
-      <p class="v">A first-time event: a closed, invitation-only evening for VIP guests to see the
-      Taiwanese-built yachts on show the night before the exhibition opened, with more chances to talk
+      <p class="v">A <span class="nb">first-time</span> event: a closed, <span class="nb">invitation-only</span> evening for VIP guests to see the
+      <span class="nb">Taiwanese-built</span> yachts on show the night before the exhibition opened, with more chances to talk
       with the makers than a normal show day allows. About 80–100 guests, by design: a closed preview
       for the most senior VIPs.</p></div>
     <div class="row"><div class="k label">My role</div>
@@ -406,7 +414,7 @@
   </div></div>
   <div class="case-r"><div class="in">
     <div class="topline"><span>Jakarta · TAITRA · 2018–2020</span><svg class="arr" aria-hidden="true"><use href="#arr"/></svg></div>
-    <h3>Running an Overseas Office — Taiwan Trade Center Jakarta</h3>
+    <h3><span class="ln">Running an Overseas Office&nbsp;—</span> <span class="ln">Taiwan Trade Center Jakarta</span></h3>
 
     <div class="row"><div class="k label">Context</div>
       <p class="v">One of TAITRA's 60+ overseas offices. Two staff were posted from headquarters —
@@ -415,9 +423,9 @@
       <p class="v">Reporting to the office Director, I led a local team of eight and managed the office's
       operating budget: local payroll, premises and programme spend.</p></div>
     <div class="row"><div class="k label">What I did</div>
-      <p class="v">Prepared the budget proposal for each headquarters-agreed programme, adapted those
+      <p class="v">Prepared the budget proposal for each <span class="nb">headquarters-agreed</span> programme, adapted those
       programmes for the Indonesian market rather than running them exactly as headquarters sent them,
-      and rebuilt buyer recruitment around repeat relationships instead of one-off invitations.</p></div>
+      and rebuilt buyer recruitment around repeat relationships instead of <span class="nb">one-off</span> invitations.</p></div>
     <div class="row outcome"><div class="k label">Outcome</div>
       <div class="v">
         <div class="stats">
@@ -464,13 +472,13 @@
     <div class="tl ruled">
       <div><span class="yr">2023 – present</span><span><b>Marketing Manager</b>, Delta Electronics
         EMEA · Hoofddorp, Netherlands</span></div>
-      <div><span class="yr">2022 – 2023</span><span><b>International Full-Time MBA</b>, TIAS / Tilburg
+      <div><span class="yr">2022 – 2023</span><span><b>International <span class="nb">Full-Time</span> MBA</b>, TIAS / Tilburg
         University · Utrecht, Netherlands</span></div>
       <div><span class="yr">2020 – 2022</span><span><b>Project Manager, Market Development</b>, TAITRA ·
         Taipei — buyer matchmaking across Asia; 2022 ASEAN–ANZ Business Opportunity Day, nearly 200
-        one-to-one sessions; 2021 online expo, +33% buyer participation</span></div>
+        <span class="nb">one-to-one</span> sessions; 2021 online expo, +33% buyer participation</span></div>
       <div><span class="yr">2018 – 2020</span><span><b>Marketing Manager</b>, Taiwan Trade Center Jakarta ·
-        Indonesia — led a team of eight; 2nd of 62 offices for buyer recruitment; 8,000-runner brand
+        Indonesia — led a team of eight; 2nd of 62 offices for buyer recruitment; 8,<span class="nb">000-runner</span> brand
         event</span></div>
       <div><span class="yr">2016 – 2017</span><span><b>Trade Representative</b>, Taiwan Trade Center Chengdu ·
         China — led a team of four; 200+ buyers a year to shows in Taiwan</span></div>
